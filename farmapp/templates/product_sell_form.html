@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sell Your Product</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color:wheat;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+form{
+    position:center;
+}
+/* Center the form on the page */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Style form labels and inputs */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Style the submit button */
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Style the submit button on hover */
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Style error messages (if any) */
+.error-message {
+    color: #ff0000;
+    margin-top: 5px;
+}
+    </style>
+</head>
+<body>
+    <h1>Sell Your Product</h1>
+    <div class="container">
+    <form method="post" action="{% url 'create_product' %}">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" name="name" required><br>
+
+        <label for="product_name">Product Name:</label>
+        <input type="text" name="product_name" required><br>
+
+        <label for="location">Location:</label>
+        <input type="text" name="location" required><br>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" name="quantity" required><br>
+
+        <label for="date">Date:</label>
+        <input type="date" name="date" required><br>
+
+        <label for="phone_number">Phone Number:</label>
+        <input type="tel" name="phone_number" pattern="[0-9]{10}" placeholder="Enter 10-digit phone number" required><br>
+       
+        <input type="submit" value="Submit">
+        
+    </form>
+    </div>
+   </body>
+</html>
